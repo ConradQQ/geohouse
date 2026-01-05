@@ -1,4 +1,4 @@
-# South Philadelphia Urban Tree Explorer
+# GeoHouse 
 
 Interactive geospatial web application analyzing urban tree density and neighborhood-level environmental context in South Philadelphia.
 
