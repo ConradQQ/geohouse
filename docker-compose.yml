@@ -14,5 +14,25 @@ services:
       timeout: 5s
       retries: 10
 
+  book_db:
+    image: postgis/postgis:16-3.4
+    container_name: geo_book_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgis_in_action
+      POSTGRES_USER: book
+      POSTGRES_PASSWORD: book
+    ports:
+      - "5433:5432"
+    volumes:
+      - geo_book_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U book -d postgis_in_action"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
 volumes:
   geo_db_data:
+  geo_book_db_data:
+
